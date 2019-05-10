@@ -1,17 +1,14 @@
-/* globals require module console */
+/* globals require module console  */
 const express = require("express");
+const path = require("path");
+const rootDir = require("../util/path");
 const router = express.Router();
 
 router.get("/add-product", function (req, res) {
-  res.send(`
-    <form action="/admin/product" method="POST" >
-      <input type="text" name="title">
-      <button type="submit">Add product</button>
-    </form>
-  `);
+  res.sendFile(path.join(rootDir, "views", "add-product.html"));
 });
 
-router.post("/product", function (req, res) {
+router.post("/add-product", function (req, res) {
   console.log(req.body);
   res.redirect("/");
 });
