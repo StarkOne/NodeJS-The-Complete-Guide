@@ -20,7 +20,7 @@ app.use(shopRoutes);
 
 // error 404 
 app.use(function (req, res, next) {
-  res.status(404).render("404", { docTitle: "404 Not Found" });
+  res.status(404).render("404", { pageTitle: "404 Not Found" });
 });
 
 app.listen(3000, () => {

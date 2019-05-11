@@ -7,7 +7,7 @@ routes.get("/", (req, res) => {
   const products = adminData.products;
   res.render("shop", 
     { prods: products, 
-      ocTitle: "Shop",
+      pageTitle: "Shop",
       path: "/"
     });
 });
