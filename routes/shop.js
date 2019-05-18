@@ -1,18 +1,8 @@
 /* globals module require */
 const express = require("express");
-const adminData = require("./admin");
+const productsController = require("../controllers/products");
 const routes = express.Router();
 
-routes.get("/", (req, res) => {
-  const products = adminData.products;
-  res.render("shop", {
-    prods: products,
-    pageTitle: "Shop",
-    path: "/",
-    hasProducts: products.length > 0,
-    activeShop: true,
-    productCSS: true
-  });
-});
+routes.get("/", productsController.getProducts);
 
 module.exports = routes;
