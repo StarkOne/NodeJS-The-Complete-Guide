@@ -3,13 +3,18 @@ const express = require("express");
 const router = express.Router();
 const products = [];
 
-router.get("/add-product", function (req, res) {
-  res.render("add-product", { pageTitle: "Add product page", path: "/admin/add-product" });
+router.get("/add-product", (req, res) => {
+  res.render("add-product", {
+    pageTitle: "Add Product",
+    path: "/admin/add-product",
+    formsCSS: true,
+    productCSS: true,
+    activeAddProduct: true
+  });
 });
 
-router.post("/add-product", function (req, res) {
-  const { title } = req.body;
-  products.push({ title: title });
+router.post("/add-product", (req, res) => {
+  products.push({ title: req.body.title });
   res.redirect("/");
 });
 
